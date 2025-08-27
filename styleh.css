@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+    --text-color: #0f4336;
+    --accent-color: #8B4513;
+    --button-bg-color: #D2B48C;
+    --button-text-color: #333;
+    --sidebar-bg-color: rgba(255, 255, 255, 0.8);
+    --sidebar-text-color: #333;
+    --sidebar-link-hover: #f0f0f0;
+    --main-font: 'Cormorant Garamond', serif;
+    --headline-font: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    background-color: #e0e6eb;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px;
+    background-image: url('bilderh/toscana.jpg');
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.logo-container {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-container.empty-placeholder {
+    visibility: hidden;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Anpassung der Sidebar */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 50px;
+    background: var(--sidebar-bg-color);
+    padding: 10px 5px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    z-index: 100;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-menu li a {
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    color: var(--accent-color);
+    background-color: var(--sidebar-link-hover);
+}
+
+.label {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar:hover .label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Highlighting für den aktiven Menüpunkt */
+.sidebar-menu li a.active {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.hero-content {
+    color: var(--text-color);
+    position: relative;
+    z-index: 10;
+}
+
+.sub-headline {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.headline {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.date {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.content-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    gap: 40px;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.content-section.reversed {
+    flex-direction: row-reverse;
+    background-color: #e0e6eb;
+}
+
+.image-box-container {
+    width: 500px;
+    height: 650px;
+    background-color: #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.content-box {
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+}
+
+.info-content {
+    text-align: left;
+}
+
+.section-title {
+    font-family: var(--headline-font);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.section-date, .section-time {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.section-address {
+    font-style: normal;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.section-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.wedding-timeline {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.wedding-timeline li {
+    margin-bottom: 5px;
+}
+
+.anreise-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    background-image: url('bilderh/toscana.jpg');
+    color: var(--text-color);
+}
+
+.anreise-content-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.anreise-content-container {
+    background: #ffffff; /* Weiß und nicht mehr durchsichtig */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.anreise-title {
+    font-family: var(--headline-font);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.anreise-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.unterkunft-section {
+    padding: 80px 20px;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.unterkunft-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.unterkunft-card {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.unterkunft-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-family: var(--headline-font);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.dresscode-section {
+    padding: 80px 20px;
+    background-color: #e0e6eb;
+    text-align: center;
+}
+
+.section-header-dresscode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.dresscode-label {
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.dresscode-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dresscode-column {
+    width: 300px;
+    text-align: center;
+}
+
+.dresscode-column-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.dresscode-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.dresscode-subtitle {
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.dresscode-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.dresscode-image {
+    width: 145px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.dresscode-text {
+    font-family: var(--main-font);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.description-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border-radius: 8px;
+    color: #888;
+}
+
+.rsvp-section {
+    padding: 80px 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    text-align: center;
+}
+
+.rsvp-header {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    padding-right: 100px;
+}
+
+.rsvp-title {
+    font-family: var(--headline-font);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.rsvp-subtitle {
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.rsvp-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.rsvp-form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.rsvp-form {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 250px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--main-font);
+    font-size: 1rem;
+}
+
+.event-group {
+    background-color: #e0e6eb;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.event-group p {
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.event-group .required {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 5px;
+}
+.checkbox-container input:checked {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+.checkbox-container input:checked::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+}
+
+.form-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.send-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.deadline {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Neue Styles für die Hochzeitswunschliste-Sektion */
+.wunschliste-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    background-image: url('bilderh/toscana.jpg');
+    color: var(--text-color);
+}
+
+.section-title-wunschliste-centered {
+    font-family: var(--headline-font);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wunschliste-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.wunschliste-content-container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    text-align: center;
+}
+
+.wunschliste-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.wunschliste-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Media Queries für Responsivität */
+@media (max-width: 1024px) {
+    .content-section, .content-section.reversed {
+        flex-direction: column;
+        padding: 40px 10px;
+        text-align: center;
+    }
+    .image-box-container {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    .content-box {
+        width: 100%;
+    }
+    .info-content {
+        text-align: center;
+    }
+    .anreise-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .anreise-content-container {
+        width: 100%;
+        max-width: 800px;
+        padding: 20px;
+    }
+    .anreise-title {
+        font-size: 2.5rem;
+    }
+    .anreise-text {
+        font-size: 1rem;
+    }
+    .unterkunft-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .unterkunft-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    .dresscode-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .dresscode-column {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .dresscode-images {
+        justify-content: center;
+    }
+    .rsvp-form {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    .rsvp-header {
+        text-align: center;
+        padding-right: 0;
+    }
+    .rsvp-label {
+        position: static;
+        margin-bottom: 20px;
+    }
+    .wunschliste-section {
+        min-height: auto;
+        height: auto;
+    }
+    .wunschliste-content-container {
+        padding: 20px;
+    }
+    .section-header-wunschliste {
+        position: static;
+        margin-bottom: 20px;
+    }
+    .section-title-wunschliste-centered {
+        position: static;
+        transform: none;
+    }
+    .sidebar {
+        width: 40px;
+        top: 20px;
+        left: 20px;
+        transform: none;
+    }
+    .sidebar-menu li a {
+        font-size: 0;
+        padding: 10px 5px;
+    }
+    .sidebar:hover {
+        width: 150px;
+    }
+    .sidebar:hover .sidebar-menu li a {
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .header-title {
+        width: 100%;
+        margin-top: 10px;
+        order: 1;
+    }
+    .logo-container {
+        order: 0;
+    }
+    .hero-section {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 150px;
+    }
+    .hero-content {
+        margin-top: 20px;
+    }
+    .sub-headline {
+        font-size: 1.5rem;
+    }
+    .headline {
+        font-size: 3rem;
+    }
+    .date {
+        font-size: 1.2rem;
+    }
+}
