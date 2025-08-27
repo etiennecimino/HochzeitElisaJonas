@@ -638,7 +638,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Media Queries für Responsivität */
 @media (max-width: 1024px) {
     .content-section, .content-section.reversed {
         flex-direction: column;
@@ -647,7 +646,8 @@ body {
     }
     .image-box-container {
         width: 100%;
-        height: 300px;
+        height: auto;
+        max-width: 500px;
         margin-bottom: 20px;
     }
     .content-box {
@@ -725,15 +725,20 @@ body {
         left: 20px;
         transform: none;
     }
-    .sidebar-menu li a {
-        font-size: 0;
-        padding: 10px 5px;
-    }
     .sidebar:hover {
         width: 150px;
     }
-    .sidebar:hover .sidebar-menu li a {
-        font-size: 1.1rem;
+    .sidebar:hover .label {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .sidebar-menu li a {
+        font-size: 1.1rem; /* Font size remains, but we hide overflow */
+        padding: 10px 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
     }
 }
 @media (max-width: 768px) {
@@ -781,3 +786,4 @@ body {
     max-width: 500px;
     margin-bottom: 20px;
 }
+
