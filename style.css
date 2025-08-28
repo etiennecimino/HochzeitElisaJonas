@@ -719,11 +719,9 @@ body {
         position: static;
         transform: none;
     }
-    .sidebar {
-        width: 40px;
-        top: 20px;
-        left: 20px;
-        transform: none;
+.sidebar {
+    display: none;
+}
     }
     .sidebar:hover {
         width: 150px;
@@ -786,4 +784,5 @@ body {
     max-width: 500px;
     margin-bottom: 20px;
 }
+
 
